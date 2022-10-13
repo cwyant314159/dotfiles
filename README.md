@@ -1,2 +1,6 @@
 # dotfiles
-My dot files
+My dot files.
+
+## TODO
+- [ ] Make deployment scripts
+- [ ] Make save script (undeploy?)
