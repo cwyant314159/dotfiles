@@ -3,20 +3,16 @@
 # Add .local/bin/ and any sub-directories to the path variable. A colon ":"
 # character is automatically prepended to each directory.
 #
-export PATH="${PATH}$(find ~/.local/bin -type d -printf :%p):~/scripts"
+export PATH="${PATH}$(find ~/.local/bin -type d -printf :%p)"
+
+# Add my scripts directory to the PATH.
+#
+export PATH="${PATH}:${HOME}/scripts"
 
 # Default Programs:
 export EDITOR="nvim"
-export TERMINAL="gnome-terminal"
+export TERMINAL="st"
 export BROWSER="brave"
-
-# Aliases:
-alias code="code --extensions-dir ${XDG_DATA_HOME}/vscode"
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias reboot="sudo reboot"
-alias shutdown="sudo shutdown"
-alias vim="nvim"
 
 # Home directory clean-up"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -29,6 +25,10 @@ export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtkrc-2.0"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export TERMINFO="${XDG_DATA_HOME:-$HOME/.local/share}"/terminfo
+
+# Don't need history from less command.
+#
+export LESSHISTFILE=-
 
 # Modify the system terminfo search path to prefer the environment variable set
 # by this script.
@@ -59,9 +59,17 @@ export PROMPT_DIRTRIM=9
 #
 export PS1="\[\e[1;35m\]\w\n\[\e[1;92m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /')\[\e[1;31m\]\$ \[\e[m\]"
 
+# Aliases:
+alias code="code --extensions-dir \"$XDG_DATA_HOME\"/vscode"
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias reboot="sudo reboot"
+alias shutdown="sudo shutdown"
+alias vim="nvim"
+
 # Apply blue light filtering using redshift.
 # -P reset reshift before applying changes
 # -O one shot set the color temperature
 # -b set the screen brightness for day:night
 #
-redshift -P -O 2500 2>&1>/dev/null
+redshift -P -O 2500 -b0.65:0.65 >/dev/null 2>&1
