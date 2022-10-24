@@ -1,0 +1,9 @@
+[init]
+    defaultBranch = main
+[user]
+    email = cwyant314159@gmail.com
+    name = Cole Wyant
+[color "status"]
+    added = green 
+    changed = yellow 
+    untracked = red 
