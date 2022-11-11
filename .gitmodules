@@ -1,3 +1,9 @@
 [submodule "config/nvim"]
 	path = config/nvim
 	url = git@github.com:cwyant314159/neovim-config.git
+[submodule "config/suckless/myst"]
+	path = config/suckless/myst
+	url = git@github.com:cwyant314159/myst.git
+[submodule "config/suckless/mydmenu"]
+	path = config/suckless/mydmenu
+	url = git@github.com:cwyant314159/mydmenu.git
