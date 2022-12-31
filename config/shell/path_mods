@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# Add .local/bin/ and any sub-directories to the path variable. A colon ":"
+# character is automatically prepended to each directory.
+export PATH="${PATH}$(find ~/.local/bin -type d -printf :%p)"
+
+# Add my scripts directory to the PATH.
+export PATH="${PATH}:${HOME}/scripts"

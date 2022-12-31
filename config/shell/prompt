@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# Only display 9 directories of the working directory in the prompt. 
+#
+export PROMPT_DIRTRIM=9
+
+# My prompt
+# Breaking the prompt line down:
+# \[\e[1;35m\]       -- the color sequence for bright purple
+# \w                 -- pwd (PROMPT_DIRTRIM modifies this)
+# \n                 -- start a new line
+# \[\e[1;92m\]       -- the color sequence for bright green
+# \$(git branch ...) -- shell command to display the git branch
+# \[\e[1;31m\]       -- the color sequence for bright red
+# \$                 -- just display a $
+# \[\e[m\]           -- end the previous color sequence
+# 
+# Breaking down the shell command to display the git branch
+# git branch                     -- run the branch command from git
+# 2> /dev/null                   -- ignore error messages (i.e. not a git repo)
+# | sed                          -- pipe the output of that command to sed
+# -e '/^[^*]/d'                  -- delete lines without a leading *
+# -e 's/* \(.*\)/ [branch: \1]/' -- display branch name
+#
+export PS1="\[\e[1;35m\]\w\n\[\e[1;92m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /')\[\e[1;31m\]\$ \[\e[m\]"

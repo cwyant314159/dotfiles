@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# Set all the shell aliases
+#
+source "${XDG_CONFIG_HOME}/shell/aliases"
+
+# Configure the shell's prompt
+#
+source "${XDG_CONFIG_HOME}/shell/prompt"
