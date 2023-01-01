@@ -7,3 +7,9 @@ alias lla='ls -la --color=auto'
 alias reboot="sudo reboot"
 alias shutdown="sudo shutdown"
 alias vim="nvim"
+
+mdless() {
+    mdcat $@ | less -R
+}
+
+export -f mdless
